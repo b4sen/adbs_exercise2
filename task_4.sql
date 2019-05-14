@@ -302,5 +302,6 @@ ON (u2.creationdate = c.creationdate)
 AND (u.upvotes+3 >= u2.upvotes)
 
 WHERE (b.name LIKE 'Autobiographer')
+AND EXISTS (SELECT 1 FROM postlinks l WHERE l.relatedpostid > p.id)
 ORDER BY p.id
 ;
